@@ -5,7 +5,8 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/ password wordpress'
 sudo mysql <<EOF
 CREATE DATABASE wordpress;
 CREATE USER 'wordpress'@'$IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress';
-GRANT ALL PRIVILEGES on *.* TO 'wordpress'@'IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress';
+GRANT ALL PRIVILEGES on wordpress.* TO 'wordpress'@'IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress';
+GRANT ALL PRIVILEGES on wordpress.* TO 'root'@'IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress';
 FLUSH PRIVILEGES;
 \q;
 EOF
