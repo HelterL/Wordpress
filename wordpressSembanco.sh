@@ -5,6 +5,10 @@ sudo apt-get install apache2 apache2-utils -y
 sudo systemctl enable apache2
 sudo systemctl start apache2
 sudo apt-get install php7.2 php7.2-mysql libapache2-mod-php7.2 php7.2-cli php7.2-cgi php7.2-gd -y
+cd /tmp
+wget -c http://wordpress.org/latest.tar.gz
+sudo tar -xzvf latest.tar.gz
+sudo rsync -av wordpress/* /var/www/html/
 sudo chmod -R 755 /var/www/html/
 cd /var/www/html
 sudo mv wp-config-sample.php wp-config.php
