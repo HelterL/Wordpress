@@ -8,8 +8,8 @@ sudo sed -i '43s/127.0.0.1/0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo service mysql restart
 sudo mysql <<EOF
 CREATE DATABASE wordpress;
-CREATE USER `wp_admin`@`$IP_PRIVATE_WEB` IDENTIFIED BY 'wordpress';
-GRANT ALL ON wordpress.* TO `wp_admin`@`$IP_PRIVATE_WEB` IDENFIFIED BY 'wordpress';
+CREATE USER `wordpress`@`$IP_PRIVATE_WEB` IDENTIFIED BY 'wordpress';
+GRANT ALL ON wordpress.* TO `wordpress`@`$IP_PRIVATE_WEB` IDENFIFIED BY 'wordpress';
 GRANT ALL ON *.* TO 'root'@'$IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EOF
