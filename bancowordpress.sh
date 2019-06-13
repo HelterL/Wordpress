@@ -6,7 +6,9 @@ sudo service mysql restart
 sudo debconf-set-selections <<< 'mysql-server mysql-server/ password wordpress'
 sudo mysql <<EOF
 CREATE DATABASE wordpress;
-GRANT ALL PRIVILEGES on wordpress.* TO 'wordpress'@'$IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress';
+CREATE USER `wordpress`@`$IP_PRIVATE_WEB` IDENTIFIED BY 'wordpress';
+GRANT ALL ON wordpress.* TO `wordpress`@`$IP_PRIVATE_WEB`;
+GRANT ALL ON *.* TO 'wordpress'@'$IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 \q;
 EOF
