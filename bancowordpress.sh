@@ -7,7 +7,7 @@ sed -i "/bind-address/d" /etc/mysql/mysql.conf.d/mysqld.cnf
 systemctl restart mysql.service
 mysql <<EOF
 CREATE DATABASE wordpress;
-GRANT ALL ON wordpress.* TO 'wordpress'@'%' IDENTIFIED BY 'wordpress' WITH GRANT OPTION;
+GRANT ALL ON wordpress.* TO 'wordpress'@'$IP_PRIVATE_WEB' IDENTIFIED BY 'wordpress' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 \q;
 EOF
