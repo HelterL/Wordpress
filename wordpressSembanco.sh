@@ -1,4 +1,3 @@
-#!/bin/bash
 echo "Instalação wordpress em andamento, aguarde..."
 sudo apt-get update 
 sudo apt-get install apache2 apache2-utils -y 
