@@ -3,7 +3,7 @@ sudo apt-get update
 sudo apt-get install apache2 apache2-utils -y 
 sudo systemctl enable apache2 
 sudo systemctl start apache2  
-sudo apt-get install mysql-client
+sudo apt-get install mysql-client -y
 sudo apt-get install php7.2 php7.2-mysql libapache2-mod-php7.2 php7.2-cli php7.2-cgi php7.2-gd -y
 cd /tmp
 wget -c http://wordpress.org/latest.tar.gz
