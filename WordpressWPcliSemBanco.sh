@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "Instalação wordpress em andamento, aguarde..."
+IP_Public="$(curl http://169.254.169.254/latest/meta-data/public-ipv4)" 
 sudo apt-get update 
 sudo apt-get install apache2 apache2-utils -y 
 sudo systemctl enable apache2 
@@ -11,7 +12,7 @@ chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 sudo -u ubuntu -i -- wp core download --locale=pt_BR
 sudo -u ubuntu -i -- wp core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=$IPBANCOPRIVADO --dbprefix=word
-sudo -u ubuntu -i -- wp core install --url="http://$IPWEBPUBLICO" --title="Topicos Avancados" --admin_user="$USUARIOWORDPRESS" --admin_password="$SENHAWORDPRESS" --admin_email="topicos@gmail.com"
+sudo -u ubuntu -i -- wp core install --url="http://$IP_Public" --title="Topicos Avancados" --admin_user="$USUARIOWORDPRESS" --admin_password="$SENHAWORDPRESS" --admin_email="topicos@gmail.com"
 sudo mv * /var/www/html
 sudo rm -fr /var/www/html/index.html
 sudo systemctl restart apache2
