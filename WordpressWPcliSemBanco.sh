@@ -1,6 +1,6 @@
 echo "Instalação wordpress em andamento, aguarde..."
 IP_Public="$(curl http://169.254.169.254/latest/meta-data/public-ipv4)" 
-sudo apt-get update 
+sudo apt-get update -y
 sudo apt-get install apache2 apache2-utils -y 
 sudo systemctl enable apache2 
 sudo systemctl start apache2  
