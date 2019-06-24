@@ -1,4 +1,3 @@
-#!/bin/bash
 echo "Instalação wordpress em andamento, aguarde..."
 IP_Public="$(curl http://169.254.169.254/latest/meta-data/public-ipv4)" 
 sudo apt-get update 
