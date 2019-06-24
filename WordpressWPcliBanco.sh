@@ -1,4 +1,4 @@
-sudo apt-get install mysql-client mysql-server -y
+sudo apt-get install mysql-server -y
 sudo debconf-set-selections <<< 'mysql-server mysql-server/ password wordpress'
 sed -i "/bind-address/d" /etc/mysql/mysql.conf.d/mysqld.cnf
 systemctl restart mysql.service
