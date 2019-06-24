@@ -1,9 +1,10 @@
 sudo apt-get install mysql-client mysql-server -y
 sudo debconf-set-selections <<< 'mysql-server mysql-server/ password wordpress'
-sudo apt-get install php7.2 php7.2-mysql libapache2-mod-php7.2 php7.2-cli php7.2-cgi php7.2-gd -y
+sed -i "/bind-address/d" /etc/mysql/mysql.conf.d/mysqld.cnf
+systemctl restart mysql.service
 sudo mysql <<EOF
 CREATE DATABASE wordpress;
-GRANT ALL PRIVILEGES on wordpress.* TO 'wordpress'@'%' IDENTIFIED BY 'wordpress';
+GRANT ALL ON wordpress.* TO 'wordpress'@'%' IDENTIFIED BY 'wordpress' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 \q;
 EOF
