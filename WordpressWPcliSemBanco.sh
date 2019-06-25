@@ -14,5 +14,5 @@ sleep 35
 sudo -u ubuntu -i -- wp core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost="$IPBANCOPRIVADO" --dbprefix=word
 sudo -u ubuntu -i -- wp core install --url="http://$IP_Public" --title="Topicos Avancados" --admin_user="$USUARIOWORDPRESS" --admin_password="$SENHAWORDPRESS" --admin_email="topicos@gmail.com"
 sudo rm -fr /var/www/html/index.html
-sudo /home/ubuntu mv * /var/www/html
+sudo mv -f /home/ubuntu/* /var/www/html/
 sudo systemctl restart apache2
