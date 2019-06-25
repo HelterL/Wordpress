@@ -10,7 +10,7 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 sudo chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 sudo -u ubuntu -i -- wp core download --locale=pt_BR
-sleep 30
+sleep 35
 sudo -u ubuntu -i -- wp core config --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost="$IPBANCOPRIVADO" --dbprefix=word
 sudo -u ubuntu -i -- wp core install --url="http://$IP_Public" --title="Topicos Avancados" --admin_user="$USUARIOWORDPRESS" --admin_password="$SENHAWORDPRESS" --admin_email="topicos@gmail.com"
 sudo rm -fr /var/www/html/index.html
